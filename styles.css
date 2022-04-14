@@ -25,6 +25,9 @@ p{
     text-align: center;
     color: gray;
 }
+img{
+    opacity: 0.5;
+}
 .form-group{
     align-self: center;
 }
