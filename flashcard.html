@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .key {
+            background-color: aqua;
+        }
+
+        .val {
+            margin-left: 100px;
+            background-color: bisque;
+        }
+
+        .flashcard {
+            width: 800px;
+            height: 500px;
+            text-align: center;
+            font-size: 40px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.58);
+            position: absolute;
+            background-color: #87ceeb;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            transition: all 1s;
+            transform-style: preserve-3d;
+
+            backface-visibility: hidden;
+
+            transform: rotateY(0deg);
+            overflow: hidden;
+        }
+
+        .card.hide {
+            transform: rotateY(180deg);
+        }
+        .card div{
+            text-align: center;
+            top: 40%;
+            position: relative;
+            margin-left: 50px;
+            margin-right: 50px;
+            height: 200px;
+        }
+        .arrow {
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+            display: block;
+            width: 40px;
+            height: 40px;
+
+        }
+
+        .right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            position: absolute;
+            right: 30px;
+            top: 220px;
+        }
+
+        .left {
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+            position: absolute;
+            left: 30px;
+            top: 220px;
+        }
+
+    
+    </style>
+
+    <script>
+
+        var current_page = 0;
+
+        function loadpage() {
+            var front = document.getElementById("front");
+            var back = document.getElementById("back");
+            var table = document.getElementById("list")
+            
+
+            front.firstElementChild.innerText = table.rows[current_page].cells[0].innerText;
+            back.firstElementChild.innerText = table.rows[current_page].cells[1].innerText;
+
+            front.classList.remove("hide");
+            back.classList.add("hide");
+
+        }
+
+        function flip() {
+            document.getElementById("front").classList.toggle("hide");
+            document.getElementById("back").classList.toggle("hide");
+        }
+
+        function prev() {
+            if (current_page > 0) {
+                current_page--;
+                loadpage();
+            }
+        }
+
+        function next() {
+             var length =document.getElementById("list").rows.length;
+             if(current_page<length-1){
+                 current_page++;
+                 loadpage();
+             }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="flashcard">
+        <div class="card" id="front">
+            <div onclick="flip()"></div>
+            <span onclick="prev()" class="arrow left"></span>
+            <span onclick="next()" class="arrow right"></span>
+        </div>
+        <div class="card hide" id="back">
+            <div  onclick="flip()"></div>
+            <span onclick="prev()" class="arrow left"></span>
+            <span onclick="next()" class="arrow right"></span>
+        </div>
+    </div>
+
+    <table id="list"></table>
+    <button onclick="prev()">prev</button>
+    <button onclick="flip()">flip</button>
+    <button onclick="next()">next</button>
+</body>
+
+
+<script>
+    window.onload = function () {
+        var table = document.getElementById("list");
+        var keys = Object.keys(window.localStorage);
+        for (item of keys) {
+
+            var tr = document.createElement("tr");
+            var k = document.createElement("td");
+            var v = document.createElement("td");
+
+            //--use key to get its-->
+            k.innerText = item;
+            v.innerText = window.localStorage.getItem(item);
+
+            k.classList = "key";
+            v.classList = "val";
+
+            tr.appendChild(k);
+            tr.appendChild(v);
+
+            table.appendChild(tr);
+        }
+
+        current_page = 0;
+        loadpage();
+    }
+
+</script>
+
+
+</html>
