@@ -1,0 +1,93 @@
+body {
+  background-color: #1b7ecf;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: -10px;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+  font-size: 18px;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 18px 30px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.header img {
+  float: left;
+  padding-left: 20px;
+  width: 60px;
+  height: 56px;
+}
+
+.HomeBackground img{
+  border-radius: 50px;
+  display: block;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1300px;
+  height: 650px;
+}
+
+h1.quote {
+  color: white;
+  font-size: 46px;
+  position: fixed;
+  left: 38%;
+  top: 39%;
+  color: white;
+
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+    /* border-left:1px solid #bbb; */
+}
+
+a.button2 {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+
+  position: fixed;
+  left: 43%;
+  top: 50%;
+  padding: 20px;
+  font-size: 22px;
+  color: white;
+  background-color: blue;
+  border-radius: 30px;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
