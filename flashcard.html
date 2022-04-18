@@ -46,14 +46,16 @@
         .card.hide {
             transform: rotateY(180deg);
         }
-        .card div{
+
+        .card div {
             text-align: center;
-            top: 40%;
             position: relative;
-            margin-left: 50px;
-            margin-right: 50px;
-            height: 200px;
+            margin-left: 60px;
+            margin-right: 60px;
+            height: 100%;
+            line-height: 500px;
         }
+
         .arrow {
             border: solid black;
             border-width: 0 3px 3px 0;
@@ -80,8 +82,6 @@
             left: 30px;
             top: 220px;
         }
-
-    
     </style>
 
     <script>
@@ -92,7 +92,7 @@
             var front = document.getElementById("front");
             var back = document.getElementById("back");
             var table = document.getElementById("list")
-            
+
 
             front.firstElementChild.innerText = table.rows[current_page].cells[0].innerText;
             back.firstElementChild.innerText = table.rows[current_page].cells[1].innerText;
@@ -115,11 +115,11 @@
         }
 
         function next() {
-             var length =document.getElementById("list").rows.length;
-             if(current_page<length-1){
-                 current_page++;
-                 loadpage();
-             }
+            var length = document.getElementById("list").rows.length;
+            if (current_page < length - 1) {
+                current_page++;
+                loadpage();
+            }
 
         }
     </script>
@@ -133,7 +133,7 @@
             <span onclick="next()" class="arrow right"></span>
         </div>
         <div class="card hide" id="back">
-            <div  onclick="flip()"></div>
+            <div onclick="flip()"></div>
             <span onclick="prev()" class="arrow left"></span>
             <span onclick="next()" class="arrow right"></span>
         </div>
