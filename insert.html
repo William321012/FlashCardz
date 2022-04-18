@@ -155,8 +155,8 @@
             return;
         }
         for (i of ul.children) {
-            var term = i.children[1].value;
-            var def = i.children[2].value;
+            var term = i.children[2].value;
+            var def = i.children[4].value;
 
             if (term.trim().length > 0 && def.trim().length > 0) {
                 window.localStorage.setItem(term, def);
@@ -191,7 +191,7 @@
 
 <body>
     <div class="flashcard">flashcard</div>
-    <input type="text" placeholder="term" id="term" onkeyup="check()"><br>
+    <input type="text" placeholder="term" id="term" onkeyup="check()">
     <input type="text" placeholder="definition" id="definition"><br>
     <button onclick="enter()">add to your study set (enter)</button>
     <button onclick="reset()">reset</button>
@@ -202,8 +202,8 @@
 </body>
 
 <script>
-    document.getElementById("term").onkeyup = functionEnter();
-    document.getElementById("definition").onkeyup = functionEnter();
+    document.getElementById("term").onkeyup = functionEnter;
+    document.getElementById("definition").onkeyup = functionEnter;
 
 </script>
 
