@@ -139,7 +139,6 @@
 
         .controlbtn {
             margin-top: 20px;
-
             border-radius: 10px;
             transition: all 0.2s;
             width: 40px;
@@ -181,6 +180,13 @@
             background: url(search-icon_03.jpg);
             background-repeat: no-repeat;
             float: left;
+
+        }
+
+        .controlbtn-parent {
+            width: 500px;
+            position: relative;
+            left: 700px;
         }
     </style>
 
@@ -229,10 +235,10 @@
     <!-- Navigation Bar -->
     <ul class="Home">
         <!-- logo -->
-        <div class="header"><a href="HomePage.html"><img src="logo.jpg" alt="Logo"></a></div>
-        <li><a href="HomePage.html">Home</a></li>
-        <li><a href="#news">About</a></li>
-        <li><a href="#contact">Features</a></li>
+        <div class="header"><a href="index.html"><img src="logo.jpg" alt="Logo"></a></div>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#Pricing">Pricing</a></li>
         <li style="float:right; background-color:blue;"><a href="signin.html" class="button">Login In/Sign Up</a></li>
     </ul>
@@ -250,11 +256,6 @@
         </div>
     </div>
 
-    <br>
-    <br>
-    <button onclick="prev()" class="controlbtn">&gt;</button>
-    <button onclick="flip()" class="controlbtn">flip</button>
-    <button onclick="next()" class="controlbtn">&lt;</button>
     <br>
     <br>
 
