@@ -1,33 +1,37 @@
 body{
     background-color: #1b7ecf;
 }
-
 .btn{
     margin:auto;
     text-align: center;
     background-color:#312e2e;
     width:fit-content;
+    justify-content: flex-end;
+  display: flex;
 }
-
 .form-container{
-    text-align: center;
-    height: 500px;
+    margin: auto;
+    height: 450px;
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px;
+    width: 500px;
 }
-
+.container{
+    display: flex;
+    justify-content: center;
+}
 h1{
     text-align: center;
     color: rgb(46, 45, 45);
+    size: 15px;
     font-size: 50px;
     padding-top: 30px;
     padding-bottom: 50px;
 }
-
 p{
-    padding-bottom: 70px;
+    padding-bottom: 40px;
     text-align: center;
     color: gray;
 }
@@ -35,11 +39,14 @@ p{
 .form-group{
     align-self: center;
 }
-
 li{
     display: inline;
 }
-
 #para{
-    padding-top: 30px;
+    color: #312e2e;
+    padding-top: 25px;
+}
+.center{
+    text-align: center;
+     display: block;
 }
