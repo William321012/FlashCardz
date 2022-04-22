@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            background-color: #1b7ecf;
+        }
+
         ul {
             list-style-type: none;
             margin-top: -10px;
@@ -48,11 +52,20 @@
 
         .key {
             background-color: aqua;
+            margin: 20px;
         }
 
         .val {
-            margin-left: 100px;
             background-color: bisque;
+        }
+
+        .key,
+        .val {
+            font-size: 50px;
+        }
+
+        #list td tr {
+            margin: 10 auto;
         }
 
         .flashcard {
@@ -63,6 +76,7 @@
             position: relative;
             margin-left: auto;
             margin-right: auto;
+            margin-top: 50px;
         }
 
         .card {
@@ -120,6 +134,53 @@
             position: absolute;
             left: 30px;
             top: 220px;
+
+        }
+
+        .controlbtn {
+            margin-top: 20px;
+
+            border-radius: 10px;
+            transition: all 0.2s;
+            width: 40px;
+            font-size: 18px;
+        }
+
+        .controlbtn:hover {
+            background-color: black;
+            transform: scale(120%);
+            color: white;
+        }
+
+        .list-parent {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .search {
+            display: inline-block;
+            font-size: 18px;
+            line-height: 40px;
+            height: 40px;
+            width: 500px;
+            padding-left: 20px;
+            margin-top: 0;
+            padding-top: 0;
+            border: 0;
+            float: left;
+        }
+
+        .search:hover {
+            border-color: skyblue;
+        }
+
+        .list-parent button {
+            width: 50px;
+            height: 40px;
+            line-height: 40px;
+            background: url(search-icon_03.jpg);
+            background-repeat: no-repeat;
+            float: left;
         }
     </style>
 
@@ -168,12 +229,12 @@
     <!-- Navigation Bar -->
     <ul class="Home">
         <!-- logo -->
-        <div class="header"><a href="index.html"><img src="logo.jpg" alt="Logo"></a></div>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#About">About</a></li>
-        <li><a href="#Features">Features</a></li>
+        <div class="header"><a href="HomePage.html"><img src="logo.png" alt="Logo"></a></div>
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="#news">About</a></li>
+        <li><a href="#contact">Features</a></li>
         <li><a href="#Pricing">Pricing</a></li>
-        <li style="float:right; background-color:blue;"><a href="signin.html" class="button">Login In/Sign Up</a></li>
+        <li style="float:right"><a href="signin.html" class="button">Login In/Sign Up</a></li>
     </ul>
 
     <div class="flashcard">
@@ -189,10 +250,22 @@
         </div>
     </div>
 
+    <br>
+    <br>
+    <button onclick="prev()" class="controlbtn">&gt;</button>
+    <button onclick="flip()" class="controlbtn">flip</button>
+    <button onclick="next()" class="controlbtn">&lt;</button>
+    <br>
+    <br>
+
+    <div class="list-parent">
+        <input type="text" placeholder="search" class="search">
+        <button></button>
+
+    </div>
+    <br>
     <table id="list"></table>
-    <button onclick="prev()">prev</button>
-    <button onclick="flip()">flip</button>
-    <button onclick="next()">next</button>
+
 </body>
 
 
