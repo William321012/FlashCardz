@@ -62,42 +62,33 @@
             border-color: aqua;
         }
 
-        li input[type="text"] {
+        #list li input[type="text"] {
             outline: none;
-            width: 350px;
-            margin-right: 20px;
+            width: 450px;
+            margin-right: 100px;
+            font-size: 18px;
             border-width: 0 0 3px 0;
             border-style: solid;
             background-color: transparent;
+            margin-bottom: 20px;
+            ;
         }
 
-        li input[type="text"]:focus {
+        #list li input[type="text"]:focus {
             border-color: aqua;
         }
 
-        #list li {
-            height: 70px;
-            list-style-type: none;
-            margin-right: 10px;
-            font-size: large;
-            border-radius: 8px;
-            padding: 6px;
-        }
-
-        */
-        /* li:nth-child(2n) {
-            background-color: rgba(197, 197, 197, 0.337);
-        } */
-
         li img {
             cursor: pointer;
+            position: relative;
+            top: 14px;
         }
 
         li span {
             user-select: none;
         }
 
-        li img {
+        .flashcard img {
             position: relative;
             top: 14px;
             transition: all 0.2s;
@@ -141,6 +132,33 @@
             background-color: #333;
             font-size: 18px;
             height: 56.8px;
+        }
+
+        .term,
+        .definition {
+            width: 400px;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-left: 220px;
+        }
+
+        .two-btn {
+            overflow: hidden;
+            margin-top: 10px;
+            ;
+        }
+
+        .reset,
+        .enter {
+            float: right;
+        }
+
+        #list {
+            margin-left: 10%;
+        }
+
+        .submit {
+            float: right;
         }
     </style>
 </head>
@@ -216,21 +234,23 @@
     <!-- Navigation Bar -->
     <ul class="Home">
         <!-- logo -->
-        <div class="header"><a href="index.html"><img src="logo.jpg" alt="Logo"></a></div>
-        <li><a href="index.html">Home</a></li>
+        <div class="header"><a href="HomePage.html"><img src="logo.jpg" alt="Logo"></a></div>
+        <li><a href="HomePage.html">Home</a></li>
         <li><a href="#About">About</a></li>
         <li><a href="#Features">Features</a></li>
         <li><a href="#Pricing">Pricing</a></li>
         <li style="float:right; background-color: blue;"><a href="signin.html" class="button">Login In/Sign Up</a></li>
     </ul>
-    <div class="flashcard">flashcard</div>
-    <input type="text" placeholder="term" id="term" onkeyup="check()">
-    <input type="text" placeholder="definition" id="definition"><br>
-    <button onclick="enter()">add to your study set (enter)</button>
-    <button onclick="reset()">reset</button>
+    <div class="flashcard"></div>
+    <input type="text" placeholder="term" id="term" onkeyup="check()" class="term">
+    <input type="text" placeholder="definition" id="definition" class="definition"><br>
+    <div class="two-btn">
+        <button onclick="enter()" class="enter">add to your study set (enter)</button>
+        <button onclick="reset()" class="reset">reset</button>
+    </div>
     <hr>
     <ul id="list"></ul>
-    <button onclick="save()">submit</button>
+    <button onclick="save()" class="submit">submit</button>
 </body>
 <script>
     document.getElementById("term").onkeyup = functionEnter;
