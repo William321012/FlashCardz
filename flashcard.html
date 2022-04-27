@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Document</title>
     <style>
         body {
@@ -134,6 +137,7 @@
         }
 
         .list-parent {
+            display: inline-block;
             width: 100%;
             overflow: hidden;
         }
@@ -155,13 +159,14 @@
             border-color: skyblue;
         }
 
-        .list-parent button {
+        .list-parent .searchbtn {
             width: 50px;
             height: 40px;
             line-height: 40px;
             background: url(search-icon_03.jpg);
             background-repeat: no-repeat;
             float: left;
+            border: none;
 
         }
 
@@ -172,13 +177,11 @@
         }
 
         .key {
-            background-color: aqua;
+
             margin: 20px;
         }
 
-        .val {
-            background-color: bisque;
-        }
+
 
         .key,
         .val {
@@ -210,6 +213,57 @@
             margin-left: 120px;
             font-size: 28px;
             font-weight: 700;
+        }
+
+        .deletebtn {
+            font-size: 50px;
+            color: black;
+            transition: all 0.2s;
+            cursor: pointer;
+            padding: 0 20px;
+        }
+
+        ion-icon {
+            user-select: none;
+        }
+
+        .deletebtn:hover {
+            color: white;
+        }
+
+        .deletebtn:active {
+            transform: scale(80%);
+        }
+
+        .savebtn {
+            font-size: 50px;
+            color: black;
+            transition: all 0.2s;
+            cursor: pointer;
+            padding: 0 20px;
+        }
+
+        .highlight {
+            background-color: rgba(255, 217, 0, 0.54);
+        }
+
+        #list tr td {
+            border: none;
+        }
+
+        .addmore {
+            margin-left: 50px;
+            height: 40px;
+            width: 80px;
+            background-color: white;
+            color: black;
+            transition: 0.2s;
+
+        }
+
+        .addmore:hover {
+            transform: scale(120%);
+            background-color: blue;
         }
     </style>
 
@@ -251,6 +305,10 @@
             }
 
         }
+
+        function addmore() {
+            window.location.href = "insert test.html";
+        }
     </script>
 </head>
 
@@ -284,15 +342,19 @@
 
     <div class="list-parent">
         <input type="text" placeholder="search" class="search">
-        <button></button>
+        <button class="searchbtn"></button>
+        <button onclick="addmore()" class="addmore">add more</button>
 
     </div>
+
+
     <br>
     <div class="title">
         <div class="title-term">term</div>
         <div class="title-definition">definition</div>
     </div>
     <table id="list"></table>
+
 
 </body>
 
@@ -303,20 +365,52 @@
         var keys = Object.keys(window.localStorage);
         for (item of keys) {
 
+
             var tr = document.createElement("tr");
             var k = document.createElement("td");
             var v = document.createElement("td");
+            var deletebtn_td = document.createElement("td");
 
-            //--use key to get its-->
+            var deletebtn = document.createElement("ion-icon");
+            deletebtn.classList.add("deletebtn");
+            deletebtn.setAttribute("name", "close-outline");
+
+            var favorite_bt = document.createElement("td");
+            var subscribe = document.createElement("ion-icon");
+            subscribe.classList.add("savebtn");
+            subscribe.setAttribute("name", "star-outline");
+            subscribe.setAttribute("data-enable", "false");
+            subscribe.onclick = function () {
+                var element = event.srcElement;
+                if (element.getAttribute("data-enable") == "false") {
+                    element.setAttribute("data-enable", "true");
+                    element.setAttribute("name", "star");
+                    element.parentElement.parentElement.classList.add("highlight");
+                } else {
+                    element.setAttribute("data-enable", "false");
+                    element.setAttribute("name", "star-outline");
+                    element.parentElement.parentElement.classList.remove("highlight");
+                }
+
+            }
+            favorite_bt.appendChild(subscribe);
+
+
+            deletebtn.onclick = function () {
+                event.srcElement.parentElement.parentElement.parentElement.removeChild(event.srcElement.parentElement.parentElement);
+            }
+            //--use key to get its value-->
             k.innerText = item;
             v.innerText = window.localStorage.getItem(item);
 
             k.classList = "key";
             v.classList = "val";
 
+            deletebtn_td.appendChild(deletebtn);
             tr.appendChild(k);
             tr.appendChild(v);
-
+            tr.appendChild(deletebtn_td);
+            tr.appendChild(favorite_bt)
             table.appendChild(tr);
         }
 
