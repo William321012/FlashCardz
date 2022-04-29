@@ -122,6 +122,11 @@
 
         }
 
+        .left:hover,
+        .right:hover {
+            cursor: pointer;
+        }
+
         .controlbtn {
             margin-top: 20px;
             border-radius: 10px;
@@ -142,22 +147,6 @@
             overflow: hidden;
         }
 
-        .search {
-            display: inline-block;
-            font-size: 18px;
-            line-height: 40px;
-            height: 40px;
-            width: 500px;
-            padding-left: 20px;
-            margin-top: 0;
-            padding-top: 0;
-            border: 0;
-            float: left;
-        }
-
-        .search:hover {
-            border-color: skyblue;
-        }
 
         .list-parent .searchbtn {
             width: 50px;
@@ -182,22 +171,24 @@
         }
 
 
-
         .key,
         .val {
             font-size: 50px;
-            display: inline-block;
-            margin-right: 50px;
+            padding: 0 20px;
         }
 
-        #list {
+        .list {
             margin: 0 auto;
         }
 
-        .title {
+        .list.hide {
+            display: none;
+        }
+
+        /* .title {
             background-color: pink;
 
-        }
+        } */
 
         .title div {
             display: inline-block;
@@ -252,18 +243,50 @@
         }
 
         .addmore {
-            margin-left: 50px;
-            height: 40px;
-            width: 80px;
-            background-color: white;
-            color: black;
+            background-color: rgb(0, 215, 0);
+            color: white;
             transition: 0.2s;
+            border: none;
+            border-radius: 8px;
+            margin-left: 20px;
+            padding: 6px;
+            float:right;
+            margin-right: 5px;
+            font-size: 18px;
 
         }
 
+        .addmore ion-icon {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
         .addmore:hover {
-            transform: scale(120%);
-            background-color: blue;
+            transform: scale(110%);
+            background-color: rgb(0, 236, 0);
+        }
+
+
+        .addmore:active {
+            background-color: rgb(0, 197, 0);
+        }
+
+        .addmore span {
+            width: 0px;
+            max-width: fit-content;
+            display: inline-block;
+            overflow: hidden;
+            transition: all 0.4s;
+            vertical-align: middle;
+
+        }
+
+        .addmore:hover span {
+            width: 100px;
+        }
+
+        .addmore:active span {
+            width: 100px;
         }
     </style>
 
@@ -309,6 +332,11 @@
         function addmore() {
             window.location.href = "insert.html";
         }
+
+
+        function expand() {
+            document.getElementById("list").classList.toggle("hide");
+        }
     </script>
 </head>
 
@@ -341,19 +369,23 @@
     <br>
 
     <div class="list-parent">
-        <input type="text" placeholder="search" class="search">
-        <button class="searchbtn"></button>
-        <button onclick="addmore()" class="addmore">add more</button>
 
+        <button onclick="addmore()" class="addmore">
+            <ion-icon name="add-outline"></ion-icon>
+            <span>Add</span>
+        </button>
+        <button class="addmore" onclick="expand()">review</button>
     </div>
 
-
-    <br>
-    <div class="title">
-        <div class="title-term">term</div>
-        <div class="title-definition">definition</div>
+    <div>
+        <!-- <div class="title">
+            <div class="title-term">term</div>
+            <div class="title-definition">definition</div>
+        </div> -->
+        <table id="list" class="list hide">
+        </table>
     </div>
-    <table id="list"></table>
+
 
 
 </body>
@@ -397,7 +429,9 @@
 
 
             deletebtn.onclick = function () {
+                var k = event.srcElement.parentElement.parentElement.firstElementChild.innerText;
                 event.srcElement.parentElement.parentElement.parentElement.removeChild(event.srcElement.parentElement.parentElement);
+                window.localStorage.removeItem(k);
             }
             //--use key to get its value-->
             k.innerText = item;

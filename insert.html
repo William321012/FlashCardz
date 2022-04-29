@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Document</title>
     <style>
         ul {
@@ -115,6 +117,7 @@
         button:hover {
             transform: scale(105%);
             background-color: rgb(162, 212, 255);
+            cursor: pointer;
         }
 
         button:active {
@@ -151,6 +154,9 @@
         .reset,
         .enter {
             float: right;
+            width: 120px;
+            font-size: 18px;
+
         }
 
         #list {
@@ -159,6 +165,19 @@
 
         .submit {
             float: right;
+            width: 120px;
+            font-size: 18px;
+        }
+
+        .ion-add {
+            font-size: 18px;
+            vertical-align: middle;
+        }
+
+        .ion-submit {
+            font-size: 18px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -199,7 +218,7 @@
         document.getElementById("definition").value = "";
     }
     function save() {
-        window.localStorage.clear();
+        //window.localStorage.clear();
         var ul = document.getElementById("list");
         if (ul.childElementCount <= 0) {
             alert("please add something before submit!");
@@ -245,12 +264,17 @@
     <input type="text" placeholder="term" id="term" onkeyup="check()" class="term">
     <input type="text" placeholder="definition" id="definition" class="definition"><br>
     <div class="two-btn">
-        <button onclick="enter()" class="enter">add to your study set (enter)</button>
+        <button onclick="enter()" class="enter">
+            <ion-icon name="add-outline" class="ion-add"></ion-icon>
+            add card
+        </button>
         <button onclick="reset()" class="reset">reset</button>
     </div>
     <hr>
     <ul id="list"></ul>
-    <button onclick="save()" class="submit">submit</button>
+    <button onclick="save()" class="submit">
+        <ion-icon name="document-text-outline" class="ion-submit"></ion-icon>submit
+    </button>
 </body>
 <script>
     document.getElementById("term").onkeyup = functionEnter;
