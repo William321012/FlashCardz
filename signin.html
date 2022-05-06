@@ -9,17 +9,24 @@
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="signinstyles.css" rel="stylesheet" type="text/css"/> 
+    <link href="signinstyles.css" rel="stylesheet" type="text/css"/>
 </head>
   <body>
-      <a target="_self" href="index.html">
-    <img src="logo.jpg" alt="FlashCardz Logo" width="70" height="70" class="center">
-      </a>
+    <ul class="Home">
+      <!-- logo -->
+      <div class="header"><a href="index.html"><img src="logo.jpg" alt="Logo"></a></div>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#About">About</a></li>
+      <li><a href="#Features">Features</a></li>
+      <li><a href="#Pricing">Pricing</a></li>
+      <li style="float:right;"><a href="signin.html" class="button">Login In/Sign Up</a></li>
+    </ul>
+    
     <section class="container-fluid">
         <section class="row">
           <div class="container">
             <section class="col-11 ">
-                <form class="form-container ">   
+                <form class="form-container ">
                     <h1>Sign in</h1>
                     <div class="form-group">
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">

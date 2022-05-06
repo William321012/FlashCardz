@@ -11,6 +11,7 @@ ul {
   overflow: hidden;
   background-color: #333;
   font-size: 18px;
+  font-family: Georgia, serif;
 }
 
 li {

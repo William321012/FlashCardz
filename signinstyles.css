@@ -1,14 +1,69 @@
 body{
     background-color: #1b7ecf;
+    font-style: normal;
 }
+
+ul {
+  list-style-type: none;
+  margin-top: -10px;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+  font-size: 17px;
+  font-family: Georgia, serif;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 18px 30px;
+  margin-top: 3px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.header img {
+  float: left;
+  padding-left: 20px;
+  margin-top: 3px;
+  width: 79px;
+  height: 63px;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+}
+
 .btn{
     margin:auto;
     text-align: center;
     background-color:#312e2e;
     width:fit-content;
     justify-content: flex-end;
-  display: flex;
+    display: flex;
 }
+
 .form-container{
     margin: auto;
     height: 450px;
@@ -18,10 +73,12 @@ body{
     box-shadow: 0px 0px 10px 0px;
     width: 500px;
 }
+
 .container{
     display: flex;
     justify-content: center;
 }
+
 h1{
     text-align: center;
     color: rgb(46, 45, 45);
@@ -30,6 +87,7 @@ h1{
     padding-top: 30px;
     padding-bottom: 50px;
 }
+
 p{
     padding-bottom: 40px;
     text-align: center;
@@ -39,13 +97,16 @@ p{
 .form-group{
     align-self: center;
 }
+
 li{
     display: inline;
 }
+
 #para{
     color: #312e2e;
     padding-top: 30px;
 }
+
 .center{
     text-align: center;
      display: block;
