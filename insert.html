@@ -9,6 +9,17 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Document</title>
     <style>
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: white;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        body {
+            background-color: #1b7ecf;
+        }
+
         ul {
             list-style-type: none;
             margin-top: -10px;
@@ -37,7 +48,7 @@
         }
 
         li a:hover:not(.active) {
-            background-color: #111;
+            background-color: black;
         }
 
         .header img {
@@ -54,14 +65,16 @@
             border-style: solid;
             background-color: transparent;
             transition: all 0.2s;
+            border-color: white;
+
         }
 
         input[type="text"]:hover {
-            border-color: rgb(154, 255, 255);
+            border-color: black;
         }
 
         input[type="text"]:focus {
-            border-color: aqua;
+            border-color: white
         }
 
         #list li input[type="text"] {
