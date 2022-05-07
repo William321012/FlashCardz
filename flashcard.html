@@ -81,6 +81,10 @@
             overflow: hidden;
         }
 
+        .card:hover{
+            cursor: pointer;
+        }
+
         .card.hide {
             transform: rotateY(180deg);
         }
@@ -289,8 +293,9 @@
             width: 100px;
         }
 
-        .card:hover{
-            cursor: pointer;
+        .hint{
+            text-align: center;
+            margin-bottom: -20px;
         }
     </style>
 
@@ -355,6 +360,8 @@
         <li><a href="#Pricing">Pricing</a></li>
         <li style="float:right; background-color:blue;"><a href="signin.html" class="button">Login In/Sign Up</a></li>
     </ul>
+
+    <div class="hint">hint: you can flip the card by clicking the card </div>
 
     <div class="flashcard">
         <div class="card" id="front">
